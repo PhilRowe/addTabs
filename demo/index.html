@@ -1,259 +1,265 @@
-<head>
-    <!-- jQuery library (served from Google) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include addTabs -->
-    <script src="../src/jquery.addTabs.js"></script>
-    <!-- Include addTabs styles -->
-    <link rel="stylesheet" type="text/css" href="tabs.css">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>addTabs - easily add tabs to your website</title>
 
-    <!-- Theme for this page... not required to use addTabs -->
-    <link rel="stylesheet" type="text/css" href="theme.css">
-</head>
-<body>
-    <div class="wrapper">
-        <h1 class="page-header">addTabs() Demo Page</h1>
-        <p>jQuery addTabs plugin. Easily add tabs to your webpage. This simple plugin will work straight out of the box for most use cases. However if you need more power there are plenty of events and callbacks that you can hook into as demonstrated below.</p>
-        <p>Full documentation can be found on our <a href="https://github.com/PhilRowe/addTabs">Github project page.</a></p>
+        <!-- jQuery library (served from Google) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include addTabs -->
+        <script src="../src/jquery.addTabs.js"></script>
+        <!-- Include addTabs styles -->
+        <link rel="stylesheet" type="text/css" href="tabs.css">
 
-
-        <div class="section first">
-            <h2 class="subsection-header">Trigger Actions</h2>
-            <p>This demo shows how you can interact with addTabs() through the <strong>event API</strong>, apart from the destroy and reinit which work by <strong>accessing internal functions directly</strong> through the element the plugin was launched on. Click the links below the tabs to see what the events and functions do.</p>
-            
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    /**
-                    * Tab set one events trigger and function calls
-                    */
-                    var $tabOne = $('#tab-trigger-ex').addTabs();
-                    // goto the index
-                    $('.gt-idx').click(function(event) {
-                        $tabOne.trigger('addTab-show-index', 2);
-                    });
-                    // goto the tab with id
-                    $('.gt-id').click(function(event) {
-                        $tabOne.trigger('addTab-show-id', "#tab-trigger-five");
-                    });
-                    // go to next tab
-                    $('.gt-next').click(function(event) {
-                        $tabOne.trigger('addTab-next');
-                    });
-                    // go to previouse tab
-                    $('.gt-prev').click(function(event) {
-                        $tabOne.trigger('addTab-prev');
-                    });
-                    // destroy the plugin
-                    $('.dest').click(function(event) {
-                        $tabOne.data('addTabs').destroy();
-                    });
-                    // re-init the plugin
-                    $('.rebuild').click(function(event) {
-                        $tabOne.data('addTabs').reInit();
-                    });
-                });
-            </script>
-
-            <div id="tab-trigger-ex" class="tab-container">
-                <div class="tabs">
-                    <a class="tab-link" data-related-tab="#tab-trigger-one">Tab One</a>
-                    <a class="tab-link" data-related-tab="#tab-trigger-two">Tab Two</a>
-                    <a class="tab-link" data-related-tab="#tab-trigger-three">Tab Three</a>
-                    <a class="tab-link" data-related-tab="#tab-trigger-four">Tab Four</a>
-                    <a class="tab-link" data-related-tab="#tab-trigger-five">Tab Five</a>
-                </div>
-                <div class="tab-holder">
-                    <div id="tab-trigger-one" class="tab-content">
-                        <img class="left" width="450" src="images/city.jpg" />
-                        <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
-                        <p>Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
-                        <p class="last">Sociis risus, quis dictumst purus augue nascetur odio integer cursus pulvinar massa. Ac odio, lorem vel sit dictumst quis a hac nisi ac tincidunt non? Nec integer lectus? Ridiculus sit elementum facilisis.</p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div id="tab-trigger-two" class="tab-content">
-                        <img class="left" width="250" src="images/landscape.jpg" />
-                        <p>Hac duis, pulvinar, duis etiam dapibus aliquam natoque magnis. Facilisis penatibus cras eros ut. Ac proin hac a sit placerat amet! Pulvinar ac nec, elementum aliquam! Montes ultrices, aliquet augue, enim pid etiam vel in eu pulvinar nunc enim. Tristique, adipiscing nunc in lundium, amet, et aliquet amet, lundium, et? Montes in natoque magna nisi.</p>
-                        <img class="right" width="250" src="images/bear.jpg" />
-                        <p class="last">Diam? Cum in pellentesque placerat placerat? Etiam placerat dapibus! Habitasse mattis vel et enim nec, est a nisi porta pulvinar et! Proin. Arcu massa. Nunc in ultrices turpis nisi! Tristique eros dis, rhoncus! In. Scelerisque est? Augue tristique porttitor lectus augue? Egestas lundium, vel dapibus, nunc? Mus scelerisque pellentesque? Sed tincidunt integer, hac parturient.</p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div id="tab-trigger-three" class="tab-content">
-                        <img class="right" width="380" src="images/sea-cliffs.jpg" />
-                        <p>Sed penatibus, elit adipiscing urna, dignissim amet enim augue? Ac. Aenean? Proin, etiam diam non, in, nec tortor augue odio, porttitor! Massa placerat, adipiscing penatibus cum urna, aenean eu sagittis, porta adipiscing augue tortor, tincidunt aliquet!</p>
-                        <p>Habitasse pulvinar massa proin hac cum sit in turpis? Pulvinar placerat duis duis nisi enim enim! Placerat scelerisque massa enim augue! Platea placerat etiam, est augue scelerisque sed est in, porta, natoque nascetur magna, pid rhoncus, phasellus adipiscing mus.</p>
-                        <p class="last">Placerat ut natoque. Penatibus, magnis. Et facilisis. Scelerisque, sit, purus. Purus arcu tincidunt adipiscing, sagittis. Aliquet? Tortor elementum sed purus?</p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div id="tab-trigger-four" class="tab-content">
-                        <p>Diam magnis cum risus eros lorem augue lundium, urna purus elementum nunc turpis? Mauris, enim ac adipiscing, ac, hac tempor natoque, pulvinar, pellentesque, dolor purus porttitor mauris pulvinar, mid sed, mauris non massa! Ultrices ridiculus. Facilisis, porttitor nunc augue, nunc montes in! Augue amet!</p>
-                        <img class="left" width="200" src="images/city2.jpg" />
-                        <img class="left" width="200" src="images/bridge.jpg" />
-                        <img class="left" height="133" src="images/city.jpg" />
-                        <div class="clearfix"></div>
-                    </div>
-                    <div id="tab-trigger-five" class="tab-content">
-                        <img class="left" width="400" style="margin-right:20px;" src="images/landscape-mist.jpg" />
-                        <ul>
-                            <li>Cursus tristique arcu? Pulvinar lacus eros auctor?</li>
-                            <li>Amet lundium hac odio ridiculus sagittis, augue ut porttitor?</li>
-                            <li>porta duis lectus? Nunc duis a cras enim? Massa nunc.</li>
-                            <li>augue ut porttitor rhoncus integer pulvinar aenean adipiscing ridiculus sed?</li>
-                            <li>Tincidunt ac turpis arcu a, diam? Nisi? Ultrices nec. Sagittis pulvinar.</li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-                <ul class='actions'>
-                    <li class="gt-idx">Go To Index</li>
-                    <li class="gt-id">Go To Id</li>
-                    <li class="gt-prev">Previous</li>
-                    <li class="gt-next">Next</li>
-                    <li class="dest">Destroy</li>
-                    <li class="rebuild last">Rebuild</li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+        <!-- Theme for this page... not required to use addTabs -->
+        <link rel="stylesheet" type="text/css" href="theme.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1 class="page-header">addTabs Demo Page</h1>
+            <p>jQuery addTabs plugin. Easily add tabs to your webpage. This simple plugin will work straight out of the box for most use cases. However if you need more power there are plenty of events and callbacks that you can hook into as demonstrated below.</p>
+            <p>Want to know how these demos have been made? Check out the source code or download the addTabs plugin from Github, the demo files are included!</p>
+            <p>Full documentation can be found on our <a href="https://github.com/PhilRowe/addTabs">Github project page.</a></p>
 
 
-        <div class="section">
-            <h2 class="subsection-header">Default tab and Re-initialise with new options</h2>
-            <p>This demo shows how you can set the default tab to somthing other than the default (Tab 1) through the html attribute <strong>"data-default-tab"</strong>, the tabs bellow will start on tab 3.</p>
-            <p>Also if you click the <strong>reinitialise</strong> button below you can see how its possible to relaunch the plugin with new options and callbacks. Once clicked an alert will fire on each tab change and the active link class will change from "active" to "active2".</p>
-
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    /**
-                    * Tab set two reinit and default tab
-                    */
-                    var tabTwo = $('#tab-reinit').addTabs();
-                    $('.reinit').click(function(event) {
-                        tabTwo.data('addTabs').reInit({
-                            'activeclass' : 'active2',
-                            afterShowCallback : function(){
-                                alert('hello');
-                            }
+            <div class="section first">
+                <h2 class="subsection-header">Trigger Actions</h2>
+                <p>This demo shows how you can interact with addTabs through the <strong>event API</strong>, apart from the destroy and reinit which work by <strong>accessing internal functions directly</strong> through the element the plugin was launched on. Click the links below the tabs to see what the events and functions do.</p>
+                
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        /**
+                        * Tab set one events trigger and function calls
+                        */
+                        var $tabOne = $('#tab-trigger-ex').addTabs();
+                        // goto the index
+                        $('.gt-idx').click(function(event) {
+                            $tabOne.trigger('addTab-show-index', 2);
+                        });
+                        // goto the tab with id
+                        $('.gt-id').click(function(event) {
+                            $tabOne.trigger('addTab-show-id', "#tab-trigger-five");
+                        });
+                        // go to next tab
+                        $('.gt-next').click(function(event) {
+                            $tabOne.trigger('addTab-next');
+                        });
+                        // go to previouse tab
+                        $('.gt-prev').click(function(event) {
+                            $tabOne.trigger('addTab-prev');
+                        });
+                        // destroy the plugin
+                        $('.dest').click(function(event) {
+                            $tabOne.data('addTabs').destroy();
+                        });
+                        // re-init the plugin
+                        $('.rebuild').click(function(event) {
+                            $tabOne.data('addTabs').reInit();
                         });
                     });
-                });
-            </script>
+                </script>
 
-            <div id="tab-reinit" class="tab-container">
-                <div class="tabs">
-                    <a class="tab-link" data-related-tab="#tab-reinit-one">Tab One</a>
-                    <a class="tab-link" data-related-tab="#tab-reinit-two">Tab Two</a>
-                    <a class="tab-link" data-related-tab="#tab-reinit-three" data-default-tab="true">Tab Three</a>
+                <div id="tab-trigger-ex" class="tab-container">
+                    <div class="tabs">
+                        <a class="tab-link" data-related-tab="#tab-trigger-one">Tab One</a>
+                        <a class="tab-link" data-related-tab="#tab-trigger-two">Tab Two</a>
+                        <a class="tab-link" data-related-tab="#tab-trigger-three">Tab Three</a>
+                        <a class="tab-link" data-related-tab="#tab-trigger-four">Tab Four</a>
+                        <a class="tab-link" data-related-tab="#tab-trigger-five">Tab Five</a>
+                    </div>
+                    <div class="tab-holder">
+                        <div id="tab-trigger-one" class="tab-content">
+                            <img class="left" width="450" src="images/city.jpg" />
+                            <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
+                            <p>Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
+                            <p class="last">Sociis risus, quis dictumst purus augue nascetur odio integer cursus pulvinar massa. Ac odio, lorem vel sit dictumst quis a hac nisi ac tincidunt non? Nec integer lectus? Ridiculus sit elementum facilisis.</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-trigger-two" class="tab-content">
+                            <img class="left" width="250" src="images/landscape.jpg" />
+                            <p>Hac duis, pulvinar, duis etiam dapibus aliquam natoque magnis. Facilisis penatibus cras eros ut. Ac proin hac a sit placerat amet! Pulvinar ac nec, elementum aliquam! Montes ultrices, aliquet augue, enim pid etiam vel in eu pulvinar nunc enim. Tristique, adipiscing nunc in lundium, amet, et aliquet amet, lundium, et? Montes in natoque magna nisi.</p>
+                            <img class="right" width="250" src="images/bear.jpg" />
+                            <p class="last">Diam? Cum in pellentesque placerat placerat? Etiam placerat dapibus! Habitasse mattis vel et enim nec, est a nisi porta pulvinar et! Proin. Arcu massa. Nunc in ultrices turpis nisi! Tristique eros dis, rhoncus! In. Scelerisque est? Augue tristique porttitor lectus augue? Egestas lundium, vel dapibus, nunc? Mus scelerisque pellentesque? Sed tincidunt integer, hac parturient.</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-trigger-three" class="tab-content">
+                            <img class="right" width="380" src="images/sea-cliffs.jpg" />
+                            <p>Sed penatibus, elit adipiscing urna, dignissim amet enim augue? Ac. Aenean? Proin, etiam diam non, in, nec tortor augue odio, porttitor! Massa placerat, adipiscing penatibus cum urna, aenean eu sagittis, porta adipiscing augue tortor, tincidunt aliquet!</p>
+                            <p>Habitasse pulvinar massa proin hac cum sit in turpis? Pulvinar placerat duis duis nisi enim enim! Placerat scelerisque massa enim augue! Platea placerat etiam, est augue scelerisque sed est in, porta, natoque nascetur magna, pid rhoncus, phasellus adipiscing mus.</p>
+                            <p class="last">Placerat ut natoque. Penatibus, magnis. Et facilisis. Scelerisque, sit, purus. Purus arcu tincidunt adipiscing, sagittis. Aliquet? Tortor elementum sed purus?</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-trigger-four" class="tab-content">
+                            <p>Diam magnis cum risus eros lorem augue lundium, urna purus elementum nunc turpis? Mauris, enim ac adipiscing, ac, hac tempor natoque, pulvinar, pellentesque, dolor purus porttitor mauris pulvinar, mid sed, mauris non massa! Ultrices ridiculus. Facilisis, porttitor nunc augue, nunc montes in! Augue amet!</p>
+                            <img class="left" width="200" src="images/city2.jpg" />
+                            <img class="left" width="200" src="images/bridge.jpg" />
+                            <img class="left" height="133" src="images/city.jpg" />
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-trigger-five" class="tab-content">
+                            <img class="left" width="400" style="margin-right:20px;" src="images/landscape-mist.jpg" />
+                            <ul>
+                                <li>Cursus tristique arcu? Pulvinar lacus eros auctor?</li>
+                                <li>Amet lundium hac odio ridiculus sagittis, augue ut porttitor?</li>
+                                <li>porta duis lectus? Nunc duis a cras enim? Massa nunc.</li>
+                                <li>augue ut porttitor rhoncus integer pulvinar aenean adipiscing ridiculus sed?</li>
+                                <li>Tincidunt ac turpis arcu a, diam? Nisi? Ultrices nec. Sagittis pulvinar.</li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <ul class='actions'>
+                        <li class="gt-idx">Go To Index</li>
+                        <li class="gt-id">Go To Id</li>
+                        <li class="gt-prev">Previous</li>
+                        <li class="gt-next">Next</li>
+                        <li class="dest">Destroy</li>
+                        <li class="rebuild last">Rebuild</li>
+                    </ul>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="tab-holder">
-                    <div id="tab-reinit-one" class="tab-content">
-                        <img class="right" width="310" src="images/city2.jpg" />
-                        <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
-                        <p class="last">Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div id="tab-reinit-two" class="tab-content">
-                        <img class="left" width="310" src="images/bridge.jpg" />
-                        <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
-                        <p class="last">Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div id="tab-reinit-three" class="tab-content">
-                        <img class="right" width="310" src="images/landscape.jpg" />
-                        <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
-                        <p class="last">Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <ul class='actions'>
-                    <li class="reinit last">Reinitialise</li>
-                </ul>
-                <div class="clearfix"></div>
             </div>
-        </div>
 
 
-        <div class="section">
-            <h2 class="subsection-header">Callbacks</h2>
-            <p>This demo uses the before and after show callbacks, switch between the tabs to see the amount of images increase with each click, <strong>checkout the console to see the output</strong>.</p>
-            
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    /**
-                    * Tab set callbacks
-                    */
-                    $('#tab-callback').addTabs({
-                        beforeShowCallback : function($link, $content){
-                            if(this.initRun){
-                                var img = $content.find('img');
-                                if(img){
-                                    var count = img.length;
-                                    $content.prepend(img.first().clone());
-                                    console.log('Before show there were ' + count + ' images.');
+            <div class="section">
+                <h2 class="subsection-header">Default tab and Re-initialise with new options</h2>
+                <p>This demo shows how you can set the default tab to somthing other than the default (Tab 1) through the html attribute <strong>"data-default-tab"</strong>, the tabs below will start on tab 3.</p>
+                <p>Also if you click the <strong>reinitialise</strong> button below you can see how its possible to relaunch the plugin with new options and callbacks. Once clicked an alert will fire on each tab change and the active link class will change from "active" to "active2".</p>
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        /**
+                        * Tab set two reinit and default tab
+                        */
+                        var tabTwo = $('#tab-reinit').addTabs();
+                        $('.reinit').click(function(event) {
+                            tabTwo.data('addTabs').reInit({
+                                'activeclass' : 'active2',
+                                afterShowCallback : function(){
+                                    alert('hello');
                                 }
-                            }
-                        },
-                        afterShowCallback : function($link, $content){
-                            if(this.initRun){
-                                var count = $content.find('img').length;
-                                console.log('After show there are ' + count + ' images.');
-                            }
-                        },
+                            });
+                        });
                     });
-                });
-            </script>
+                </script>
 
-            <div id="tab-callback" class="tab-container">
-                <div class="tabs">
-                    <a class="tab-link" data-related-tab="#tab-callabck-one">Tab One</a>
-                    <a class="tab-link" data-related-tab="#tab-callabck-two">Tab Two</a>
-                </div>
-                <div class="tab-holder">
-                    <div id="tab-callabck-one" class="tab-content">
-                        <img class="left addDemo" width="100" src="images/bear.jpg" />
-                        <div class="clearfix"></div>
+                <div id="tab-reinit" class="tab-container">
+                    <div class="tabs">
+                        <a class="tab-link" data-related-tab="#tab-reinit-one">Tab One</a>
+                        <a class="tab-link" data-related-tab="#tab-reinit-two">Tab Two</a>
+                        <a class="tab-link" data-related-tab="#tab-reinit-three" data-default-tab="true">Tab Three</a>
                     </div>
-                    <div id="tab-callabck-two" class="tab-content">
-                        <img class="left addDemo" width="100" src="images/sea-cliffs.jpg" />
-                        <div class="clearfix"></div>
+                    <div class="tab-holder">
+                        <div id="tab-reinit-one" class="tab-content">
+                            <img class="right" width="310" src="images/city2.jpg" />
+                            <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
+                            <p class="last">Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-reinit-two" class="tab-content">
+                            <img class="left" width="310" src="images/bridge.jpg" />
+                            <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
+                            <p class="last">Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-reinit-three" class="tab-content">
+                            <img class="right" width="310" src="images/landscape.jpg" />
+                            <p>Velit sit urna integer eros rhoncus! Pellentesque, habitasse. Rhoncus, ut facilisis? Elit natoque porttitor dignissim eu rhoncus hac tristique aliquam risus? Pulvinar vut. Diam lacus tortor, penatibus nisi nunc magna, enim a pulvinar, platea sociis adipiscing! Sociis in! Habitasse! Sagittis! Porta diam proin dignissim a lundium dignissim urna?</p>
+                            <p class="last">Mus mid nisi rhoncus ultricies odio! Porttitor.Dignissim! Enim mauris habitasse a dolor dignissim platea, ac turpis? Ac, tortor ut amet pellentesque sagittis odio. Elementum porta et. Lacus diam risus diam rhoncus.</p>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="subsection-header">Custom Markup</h2>
-            <p>This demo shows how you can use custom markup for your tabs. It may not look great but the tab content still changes!!!</p>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('.addTabs').addTabs();
-                });
-            </script>
-            <div class="tab-container addTabs" data-links="ul >li" data-content=".tab-holder >div">
-                <ul>
-                    <li data-related-tab="#tab-one">Tab One</li>
-                    <li data-related-tab="#tab-two">Tab Two</li>
-                    <li data-related-tab="#tab-three">Tab Three</li>
-                </ul>
-                <div class="tab-holder">
-                    <div id="tab-one">
-                        Tab 1 content
-                    </div>
-                    <div id="tab-two">
-                        Tab 2 Content
-                    </div>
-                    <div id="tab-three">
-                        Tab 3 Content
-                    </div>
+                    <div class="clearfix"></div>
+                    <ul class='actions'>
+                        <li class="reinit last">Reinitialise</li>
+                    </ul>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer">
-            <p>&copy; Philip Rowe 2014</p>
-        </div>
 
-    </div>
-</body>
+            <div class="section">
+                <h2 class="subsection-header">Callbacks</h2>
+                <p>This demo uses the before and after show callbacks, switch between the tabs to see the amount of images increase with each click, <strong>check out the console to see the output</strong>.</p>
+                
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        /**
+                        * Tab set callbacks
+                        */
+                        $('#tab-callback').addTabs({
+                            beforeShowCallback : function($link, $content){
+                                if(this.initRun){
+                                    var img = $content.find('img');
+                                    if(img){
+                                        var count = img.length;
+                                        $content.prepend(img.first().clone());
+                                        console.log('Before show there were ' + count + ' images.');
+                                    }
+                                }
+                            },
+                            afterShowCallback : function($link, $content){
+                                if(this.initRun){
+                                    var count = $content.find('img').length;
+                                    console.log('After show there are ' + count + ' images.');
+                                }
+                            },
+                        });
+                    });
+                </script>
+
+                <div id="tab-callback" class="tab-container">
+                    <div class="tabs">
+                        <a class="tab-link" data-related-tab="#tab-callabck-one">Tab One</a>
+                        <a class="tab-link" data-related-tab="#tab-callabck-two">Tab Two</a>
+                    </div>
+                    <div class="tab-holder">
+                        <div id="tab-callabck-one" class="tab-content">
+                            <img class="left addDemo" width="100" src="images/bear.jpg" />
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="tab-callabck-two" class="tab-content">
+                            <img class="left addDemo" width="100" src="images/sea-cliffs.jpg" />
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="subsection-header">Custom Markup</h2>
+                <p>This demo shows how you can use custom markup for your tabs. It may not look great but the tab content still changes!!!</p>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('.addTabs').addTabs();
+                    });
+                </script>
+                <div class="tab-container addTabs" data-links="ul >li" data-content=".tab-holder >div">
+                    <ul>
+                        <li data-related-tab="#tab-one">Tab One</li>
+                        <li data-related-tab="#tab-two">Tab Two</li>
+                        <li data-related-tab="#tab-three">Tab Three</li>
+                    </ul>
+                    <div class="tab-holder">
+                        <div id="tab-one">
+                            Tab 1 content
+                        </div>
+                        <div id="tab-two">
+                            Tab 2 Content
+                        </div>
+                        <div id="tab-three">
+                            Tab 3 Content
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>&copy; Philip Rowe 2014</p>
+            </div>
+
+        </div>
+    </body>
+</html>

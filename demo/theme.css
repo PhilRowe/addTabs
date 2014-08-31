@@ -101,7 +101,8 @@ body {
 	background-color: #ffffff;
 }
 .wrapper{
-	max-width: 900px;
+	max-width: 940px;
+    padding: 0 20px;
 	margin: 0 auto;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -120,6 +121,7 @@ h1, .h1, h2, .h2 {
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
+ul{ padding: 0 0 0 20px; }
 .page-header {
 	padding-bottom: 9px;
 	margin: 40px 0 20px;
