@@ -1,0 +1,37 @@
+{
+  "name": "addTabs",
+  "version": "1.0.0",
+  "homepage": "https://github.com/PhilRowe/addTabs",
+  "authors": [
+    "Philip Rowe <philiprowe@hotmail.co.uk>"
+  ],
+  "description": "Quickly addTabs to your website, addTabs provides triggers, events and callbacks so you can expand its functionality even further!",
+  "main": [
+    "src/jquery.addTabs.js",
+    "demo/addTabs.css"
+  ],
+  "keywords": [
+    "tabs",
+    "jQuery",
+    "plugin",
+    "Zepto",
+    "API",
+    "Events",
+    "callbacks"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PhilRowe/addTabs.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1"
+  }
+}
