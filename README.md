@@ -19,7 +19,7 @@ jQuery addTabs plugin. Easily add tabs to your webpage. This simple plugin will 
 
 ## Usage
 
-### Add the libary
+### Add the library
 Add both jQuery (if not already present) and the addTabs plugin to the head of your document
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
