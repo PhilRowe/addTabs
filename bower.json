@@ -1,6 +1,6 @@
 {
   "name": "addTabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/PhilRowe/addTabs",
   "authors": [
     "Philip Rowe <philiprowe@hotmail.co.uk>"
@@ -11,6 +11,7 @@
     "demo/addTabs.css"
   ],
   "keywords": [
+    "addTabs",
     "tabs",
     "jQuery",
     "plugin",

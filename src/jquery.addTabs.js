@@ -76,8 +76,8 @@
             if($defaultLink.length){
                 $link = $defaultLink;
             }
-            else if(at.settings.default){
-                $link = at.findLinkByData(at.settings.default);
+            else if(at.settings.defaulttab){
+                $link = at.findLinkByData(at.settings.defaulttab);
             }
             else{
                 $link = at.findLinkByIndex(0);
@@ -257,7 +257,7 @@
         'activeclass'       : 'active',
         'disabledclass'     : 'disabled',
         'data'              : 'related-tab',
-        'default'           : '',
+        'defaulttab'        : '',
         beforeShowCallback  : function() {}, // function($link, $content) { }
         afterShowCallback   : function() {}, // function($link, $content) { }
     };

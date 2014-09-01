@@ -197,14 +197,18 @@
                                     if(img){
                                         var count = img.length;
                                         $content.prepend(img.first().clone());
-                                        console.log('Before show there were ' + count + ' images.');
+                                        if(window.console){
+                                            console.log('Before show there were ' + count + ' images.');
+                                        }
                                     }
                                 }
                             },
                             afterShowCallback : function($link, $content){
                                 if(this.initRun){
                                     var count = $content.find('img').length;
-                                    console.log('After show there are ' + count + ' images.');
+                                    if(window.console){
+                                        console.log('After show there are ' + count + ' images.');
+                                    }
                                 }
                             },
                         });

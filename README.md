@@ -2,8 +2,8 @@
 
 jQuery addTabs plugin. Easily add tabs to your webpage. This simple plugin will work straight out of the box for most use cases. However if you need more power there are plenty of events and callbacks that you can hook into.
 
-* <a href="http://www.philr.org.uk/addTabs/demo/">View Demo Page</a>
-* <a href="http://www.philr.org.uk/addTabs/demo/zepto.html">View Demo Page (Zepto Version)</a>
+* <a href="http://www.philr.org.uk/addTabs/demo/" target="_blank">View Demo Page</a>
+* <a href="http://www.philr.org.uk/addTabs/demo/zepto.html" target="_blank">View Demo Page (Zepto Version)</a>
 * <a href="https://github.com/PhilRowe/addTabs/archive/master.zip">Download addTabs now!</a>
 
 ## Description
@@ -15,7 +15,12 @@ jQuery addTabs plugin. Easily add tabs to your webpage. This simple plugin will 
 
 ## Dependencies
 * Developed using <a href="http://jquery.com/" target="_blank">jQuery 1.11.1</a>
-* Works with <a href="http://zeptojs.com/">Zepto!</a>
+* Works with <a href="http://zeptojs.com/" target="_blank">Zepto!</a>
+
+## Install with Bower
+Add this plugin to your projects dependencies with <a href="http://bower.io/" target="_blank">bower</a>.
+
+	bower install add-tabs
 
 ## Usage
 
@@ -26,7 +31,7 @@ Add both jQuery (if not already present) and the addTabs plugin to the head of y
 <script src="jquery.collapse.js"></script>
 ```
 
-**Or** if you want to use Zepto add the <a href="http://zeptojs.com/#download">Zepto libary</a>, the <a href="http://zeptojs.com/#download">Zepto data module</a> and addTabs to the head of your document
+**Or** if you want to use Zepto add the <a href="http://zeptojs.com/#download" target="_blank">Zepto libary</a>, the <a href="http://zeptojs.com/#download" target="_blank">Zepto data module</a> and addTabs to the head of your document
 ```html
 <script src="zepto/zepto.js"></script>
 <script src="zepto/zepto-data.js"></script>
@@ -106,7 +111,7 @@ You can pass settings through to the plugin on setup or reinit. Currently suppor
 | activeclass  			| active		| The name of the class which will be added to the tab links which are active
 | disabledclass 		| disabled		| If a tab link has this class it will not be activated
 | data 					| related-tab	| The name of the html data attribute against a tab link which holds the ID of the related content div
-| default 				| -				| Id of the tab content div to be shown be default e.g. #tab-one (the default tab can be set other ways)
+| defaulttab 			| -				| ID of the tab content div to be shown be default e.g. #tab-one (the default tab can be set other ways)
 | beforeShowCallback 	| -				| The callback function to be fired before the tab is shown
 | afterShowCallback 	| -				| The callback function to be fired after the tab has shown
 
