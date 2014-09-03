@@ -177,3 +177,39 @@ a:hover, a:focus {
     border-bottom: 1px solid #bce8f1;
     cursor: default;
 }
+
+/* action links */
+.actions{ padding-left: 0; margin: 10px 0 0 0; }
+.actions li{ 
+    list-style: none; 
+    float: left; 
+    display: block;
+    padding: 4px 12px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f3f3f3;
+    color: #3fbf79;
+    border: 0px solid #cccccc;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+.actions li.last{
+    clear: right;
+}
+.actions li:hover{
+    background-color: #e6e6e6;
+    color: #333333;
+}
+.actions li:first-child{
+    margin-left: 0;
+}
+
+/* Lazy Image Loading */
+.tab-content .lazy{ width:400px; }
+.tab-content .lazy img{ width: 100%; }
+#tab-lazy-gallery{ padding-right: 0px; padding-bottom: 0px; }
+#tab-lazy-gallery .img-loading{ min-height: 191px; }
+#tab-lazy-gallery .lazy{ width: 286px; padding-bottom: 20px; }

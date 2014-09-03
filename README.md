@@ -9,6 +9,7 @@ jQuery addTabs plugin. Easily add tabs to your webpage. This simple plugin will 
 ## Description
 * Add many groups of tabs to a single page and initialise with one line of JavaScript
 * Configuration options for launch and reinit
+* Lazy load images, to speed up page loading
 * Access the internal methods for full control
 * Cross-browser support: Google Chrome, Mozilla Firefox, Opera, Safari, IE(8.0+)
 * Simple skin by default, Customise to make it you own!
@@ -101,6 +102,28 @@ You may wish to use slightly different markup and classes this can be achieved b
 </div>
 ```
 
+### Lazy Loading Images
+Images can be lazy loaded by adding the **data-lazyload="true"** to the tabs outer div or through the setting object on initialise and moving the src attribute of the image to the data-src attribute.
+
+You can also wrap the image in a div with a class of **.lazy** which will then receive a **.loading** class whilst the image is loading.
+
+The html below shows sample markup of how this can be achieved.
+
+```html
+<div id="tab-lazy-ex" class="tab-container" data-lazyload="true">
+    <div class="tabs">
+        <a class="tab-link" data-related-tab="#tab-lazy-one">Tab One</a>
+    </div>
+    <div class="tab-holder">
+        <div id="tab-lazy-one" class="tab-content">
+            <div class="lazy">
+                <img data-src="example.jpg" />
+            </div>
+        </div>
+    </div>
+</div>
+```
+
 ### Settings and Callbacks
 You can pass settings through to the plugin on setup or reinit. Currently supported options are:
 
@@ -112,6 +135,8 @@ You can pass settings through to the plugin on setup or reinit. Currently suppor
 | disabledclass 		| disabled		| If a tab link has this class it will not be activated
 | data 					| related-tab	| The name of the html data attribute against a tab link which holds the ID of the related content div
 | defaulttab 			| -				| ID of the tab content div to be shown be default e.g. #tab-one (the default tab can be set other ways)
+| lazyload				| false			| Whether or not you want to lazy load images (data-src need to be added to the images in the tab, src needs to be removed)
+| lazyloadwrapper		| .lazy			| The class added to the element around the image which will recieve the .loading class
 | beforeShowCallback 	| -				| The callback function to be fired before the tab is shown
 | afterShowCallback 	| -				| The callback function to be fired after the tab has shown
 
@@ -127,7 +152,7 @@ $('.addTabs').addTabs({
 ```
 
 ### Trigger Events
-You can also alter add tabs by firing events. Currently supported events are:
+You can also alter addTabs by firing events. Currently supported events are:
 
 | Property				| Default		| Description
 | --------------------- | ------------- | -----------
@@ -145,15 +170,19 @@ $('.addTabs').trigger('addTab-show-id', "#tab-two");
 ### Subscribe to Events
 You can listen out for a tab change using the following snippet:
 
+| Event					| Data Returned 	| Description
+| --------------------- | ------------- 	| -----------
+| addTab-show       	| $link, $content	| A tab has been shown on the page
+| addTab-image-loaded   | $image, $content	| A lazy load image has been loaded
+| addTab-images-loaded  | $images, $content	| All images in the tab have been loaded
+
+Events can be subscribed to using the following code:
 ```js
 $('.addTabs').on("addTab-show", function(event, link, content){
     console.log(link);
     console.log(content);
 });
 ```
-
-* link: a jQuery object representing the active link
-* content: a jQuery object representing currently visible tab content
 
 ### Reinit addTabs
 If you want to change the plugins options once it has been run use the following function
